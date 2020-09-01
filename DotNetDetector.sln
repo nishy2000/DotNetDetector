@@ -25,6 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3839E738-4
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ED881C29-9EA2-48BF-9FF8-BC2134928BE9}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{A3863928-C44F-4040-B0FA-B7F957A25288}"
 	ProjectSection(SolutionItems) = preProject
@@ -54,9 +57,7 @@ Global
 		{668F62FA-C368-4AC3-805F-C3712D371A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{668F62FA-C368-4AC3-805F-C3712D371A08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
