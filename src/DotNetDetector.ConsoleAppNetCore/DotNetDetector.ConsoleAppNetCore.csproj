@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp2;netcoreapp2.1;netcoreapp2.2;netcoreapp3;netcoreapp3.1</TargetFrameworks>
+    <AssemblyVersion>1.0.0.8300</AssemblyVersion>
+    <FileVersion>1.0.0.8300</FileVersion>
+    <RootNamespace>NishySoftware.Utilities</RootNamespace>
+    <Version>1.0.0-alpha00</Version>
+    <Company>nishy software</Company>
+    <Authors>nishy software</Authors>
+    <PackageTags>.NET Framework Version detection</PackageTags>
+    <RepositoryUrl>https://github.com/nishy2000/DotNetDetector</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/nishy2000/DotNetDetector</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>©2020 nishy software</Copyright>
+    <PackageId>NishySoftware.DotNetDetector.ConsoleAppNetCore</PackageId>
+    <Description>
+      Provides the ability to detect various .NET Framework versions.
+      -.NET Framework version installed on the system
+      -Target .NET Framework version when the app (EXE) was built
+      -NET Framework version used by the running application (EXE).
+    </Description>
+    <PackageReleaseNotes>
+      Changes
+      - [alpha00]Support .NET Framework
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DotNetDetector.ConsoleApp\Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetDetector\DotNetDetector.csproj" />
+  </ItemGroup>
+
+</Project>

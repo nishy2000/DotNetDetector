@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <AssemblyVersion>1.0.0.8300</AssemblyVersion>
+    <FileVersion>1.0.0.8300</FileVersion>
+    <RootNamespace>NishySoftware.Utilities</RootNamespace>
+    <Version>1.0.0-alpha00</Version>
+    <Company>nishy software</Company>
+    <Authors>nishy software</Authors>
+    <PackageTags>.NET Framework Version detection</PackageTags>
+    <RepositoryUrl>https://github.com/nishy2000/DotNetDetector</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/nishy2000/DotNetDetector</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>©2020 nishy software</Copyright>
+    <PackageId>NishySoftware.DotNetDetector.ConsoleApp</PackageId>
+    <Description>
+      Provides the ability to detect various .NET Framework versions.
+      -.NET Framework version installed on the system
+      -Target .NET Framework version when the app (EXE) was built
+      -NET Framework version used by the running application (EXE).
+    </Description>
+    <PackageReleaseNotes>
+      Changes
+      - [alpha00]Support .NET Framework
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetDetector\DotNetDetector.csproj" />
+  </ItemGroup>
+
+</Project>

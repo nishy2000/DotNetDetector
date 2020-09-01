@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDetector", "src\DotNetDetector\DotNetDetector.csproj", "{1F341554-DEDC-49C9-A652-BDAAB1F894B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{2BBC60C7-6232-4EAD-8298-E1579996A961}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDetector.ConsoleApp", "src\DotNetDetector.ConsoleApp\DotNetDetector.ConsoleApp.csproj", "{1263F158-BA7F-4E6F-81E4-88350AA5AF30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDetector.ConsoleAppNetCore", "src\DotNetDetector.ConsoleAppNetCore\DotNetDetector.ConsoleAppNetCore.csproj", "{668F62FA-C368-4AC3-805F-C3712D371A08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{F202F085-EE53-4EDE-AA73-300E262FABFB}"
+	ProjectSection(SolutionItems) = preProject
+		package\BuildPacakges.cmd = package\BuildPacakges.cmd
+		package\NuGet.exe = package\NuGet.exe
+		package\SignPackages.cmd = package\SignPackages.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3839E738-4599-4760-A32F-7B444201E882}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ED881C29-9EA2-48BF-9FF8-BC2134928BE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{A3863928-C44F-4040-B0FA-B7F957A25288}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetDetector.ConsoleAppNet5", "src\DotNetDetector.ConsoleAppNet5\DotNetDetector.ConsoleAppNet5.csproj", "{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F341554-DEDC-49C9-A652-BDAAB1F894B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F341554-DEDC-49C9-A652-BDAAB1F894B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F341554-DEDC-49C9-A652-BDAAB1F894B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F341554-DEDC-49C9-A652-BDAAB1F894B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1263F158-BA7F-4E6F-81E4-88350AA5AF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1263F158-BA7F-4E6F-81E4-88350AA5AF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1263F158-BA7F-4E6F-81E4-88350AA5AF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1263F158-BA7F-4E6F-81E4-88350AA5AF30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668F62FA-C368-4AC3-805F-C3712D371A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668F62FA-C368-4AC3-805F-C3712D371A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668F62FA-C368-4AC3-805F-C3712D371A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668F62FA-C368-4AC3-805F-C3712D371A08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1263F158-BA7F-4E6F-81E4-88350AA5AF30} = {2BBC60C7-6232-4EAD-8298-E1579996A961}
+		{668F62FA-C368-4AC3-805F-C3712D371A08} = {2BBC60C7-6232-4EAD-8298-E1579996A961}
+		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16} = {2BBC60C7-6232-4EAD-8298-E1579996A961}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C756815E-05C0-4CFA-9929-9276F700512A}
+	EndGlobalSection
+EndGlobal
