@@ -10,6 +10,7 @@ trigger:
   paths:
     include:
     - src/*
+    - DotNetDetector.sln
 
 pool:
   vmImage: 'windows-latest'
