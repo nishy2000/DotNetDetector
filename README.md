@@ -1,6 +1,21 @@
 # NishySoftware.DotNetDetector
+## Development status
+[![Build Status (develop)](https://nishy-software.visualstudio.com/DotNetDetector/_apis/build/status/nishy2000.DotNetDetector?branchName=develop&label=develop)](https://nishy-software.visualstudio.com/DotNetDetector/_build/latest?definitionId=6&branchName=develop)
+[![Build Status (master)](https://nishy-software.visualstudio.com/DotNetDetector/_apis/build/status/nishy2000.DotNetDetector?branchName=master&label=master)](https://nishy-software.visualstudio.com/DotNetDetector/_build/latest?definitionId=6&branchName=master)
 
-Provides the ability to detect various .NET Framework / .NET Core versions.
+[![Downloads](https://img.shields.io/nuget/dt/NishySoftware.DotNetDetector.svg?style=flat-square&label=downloads)](https://www.nuget.org/packages/NishySoftware.DotNetDetector/)
+[![NuGet](https://img.shields.io/nuget/v/NishySoftware.DotNetDetector.svg?style=flat-square)](https://www.nuget.org/packages/NishySoftware.DotNetDetector/)
+[![NuGet (pre)](https://img.shields.io/nuget/vpre/NishySoftware.DotNetDetector.svg?style=flat-square&label=nuget-pre)](https://www.nuget.org/packages/NishySoftware.DotNetDetector/)
+[![Release](https://img.shields.io/github/release/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/releases)
+[![License](https://img.shields.io/github/license/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/blob/master/LICENSE)
+
+[![Issues](https://img.shields.io/github/issues/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/issues)
+[![Issues](https://img.shields.io/github/issues-closed/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/issues?q=is%3Aissue+is%3Aclosed)
+[![Pull Requests](https://img.shields.io/github/issues-pr/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/pulls)
+[![Pull Requests](https://img.shields.io/github/issues-pr-closed/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/pulls?q=is%3Apr+is%3Aclosed)
+
+# About
+NishySoftware.DotNetDetector provides the ability to detect various .NET Framework / .NET Core versions.
 - Target .NET Framework / .NET Core version when the application was built
 - .NET Framework / .NET Core version used by the running application.
 - .NET Framework version installed on the system
@@ -21,11 +36,9 @@ PM> Install-Package NishySoftware.DotNetDetector
 
 # Features / How to use
 
-## NishySoftware.DotNetDetector
-
 All public methods are exported as static methods.
 
-### DetectAppTargetNetType()
+## DetectAppTargetNetType()
 ```csharp
 DotNetDetector.FrameworkTypes DetectAppTargetNetType()
 ```
@@ -41,7 +54,7 @@ This method returns the framework type.
         }
 ```
 
-### DetectAppTargetNetVersion()
+## DetectAppTargetNetVersion()
 ```csharp
 Version DetectAppTargetNetVersion()
 ```
@@ -49,7 +62,7 @@ Version DetectAppTargetNetVersion()
 This method returns the version of the .NET Framework / .NET Core that was specified as the TargetFramwork at build time.
 If it cannot be determined, it returns null.
 
-### DetectAppRuntimeNetVersion()
+## DetectAppRuntimeNetVersion()
 ```csharp
 Version DetectAppRuntimeNetVersion()
 ```
@@ -57,14 +70,14 @@ Version DetectAppRuntimeNetVersion()
 This method returns the version of .NET Framework / .NET Core used by the running application.
 If it cannot be determined, null is returned.
 
-### Version DetectInstalledNetFrameworkVersion()
+## Version DetectInstalledNetFrameworkVersion()
 ```csharp
 Version DetectInstalledNetFrameworkVersion()
 ```
 This method returns the maximum version of .NET Framework that installed on the system.
 If it cannot be determined, or if the calling application is not a .NET Framework application, null is returned.
 
-### Example
+# Example
 
 ```csharp
 namespace NishySoftware.Utilities.DotNetDetector.ConsoleApp
@@ -102,7 +115,7 @@ namespace NishySoftware.Utilities.DotNetDetector.ConsoleApp
 }
 ```
 
-Output by .NET Framework 4.7.2 app:
+## Output by .NET Framework 4.7.2 app
 ```
 ImageRuntimeVersion: v4.0.30319
 RuntimeEnvironment: v4.0.30319
@@ -113,7 +126,7 @@ App runtime framework version: 4.8.4220.0
 Installed .NET framework version: 4.8
 ```
 
-Output by .NET Core 2.2 app:
+## Output by .NET Core 2.2 app
 ```
 ImageRuntimeVersion: v4.0.30319
 RuntimeEnvironment: v4.0.30319
