@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <AssemblyVersion>1.0.0.8300</AssemblyVersion>
-    <FileVersion>1.0.0.8300</FileVersion>
+    <AssemblyVersion>1.0.0.9040</AssemblyVersion>
+    <FileVersion>1.0.0.9040</FileVersion>
     <RootNamespace>NishySoftware.Utilities</RootNamespace>
     <Version>1.0.0-alpha00</Version>
     <Company>nishy software</Company>

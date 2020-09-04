@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp2;netcoreapp2.1;netcoreapp2.2;netcoreapp3;netcoreapp3.1</TargetFrameworks>
-    <AssemblyVersion>1.0.0.8300</AssemblyVersion>
-    <FileVersion>1.0.0.8300</FileVersion>
+    <OutputType>Exe</OutputType>
+    <AssemblyVersion>1.0.0.9040</AssemblyVersion>
+    <FileVersion>1.0.0.9040</FileVersion>
     <RootNamespace>NishySoftware.Utilities</RootNamespace>
     <Version>1.0.0-alpha00</Version>
     <Company>nishy software</Company>
@@ -29,11 +29,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\DotNetDetector.ConsoleApp\Program.cs" Link="Program.cs" />
+    <ProjectReference Include="..\DotNetDetector\DotNetDetector.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotNetDetector\DotNetDetector.csproj" />
+    <Compile Include="..\DotNetDetector.ConsoleApp\Program.cs" Link="Program.cs" />
   </ItemGroup>
 
 </Project>

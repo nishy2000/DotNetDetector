@@ -43,7 +43,7 @@ namespace NishySoftware.Utilities
         /// <summary>
         /// Provides functionality to detect which version of the .NET Framework that is installed on the current machine.
         /// </summary>
-        /// <returns>.NET Framework app: Detected version, null if version cannot be determined
+        /// <returns>.NET Framework app: Detected version, null if version cannot be determined.
         /// .NET Core app/.NET app: null</returns>
         public static Version DetectInstalledNetFrameworkVersion()
         {
