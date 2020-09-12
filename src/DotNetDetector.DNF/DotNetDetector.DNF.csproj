@@ -15,17 +15,19 @@
     <PackageProjectUrl>https://github.com/nishy2000/DotNetDetector</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>©2020 nishy software</Copyright>
-    <PackageId>NishySoftware.DotNetDetector</PackageId>
+    <PackageId>NishySoftware.DotNetDetector.DNF</PackageId>
     <Description>
-      Provides the ability to detect various .NET Framework / .NET Core versions.
-      - Target .NET Framework / .NET Core version when the application was built
-      - .NET Framework / .NET Core version used by the running application.
+      Provides the ability to detect version of .NET Framework installed on the system.
     </Description>
     <PackageReleaseNotes>
       Changes
       - [alpha00] Initial version
-      - [alpha01] Divide DetectInstalledNetFrameworkVersion() method from  NishySoftware.DotNetDetector library to NishySoftware.DotNetDetector.DNF library
+      - [alpha01] Divide DetectInstalledNetFrameworkVersion() method from  NishySoftware.DotNetDetector library to this NishySoftware.DotNetDetector.DNF library
     </PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2' ">
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.7.0"/>
+  </ItemGroup>
 
 </Project>

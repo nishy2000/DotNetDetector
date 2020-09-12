@@ -36,7 +36,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{A3
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetDetector.ConsoleAppNet5", "src\DotNetDetector.ConsoleAppNet5\DotNetDetector.ConsoleAppNet5.csproj", "{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDetector.ConsoleAppNet5", "src\DotNetDetector.ConsoleAppNet5\DotNetDetector.ConsoleAppNet5.csproj", "{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDetector.DNF", "src\DotNetDetector.DNF\DotNetDetector.DNF.csproj", "{19561F1B-D724-465B-B30B-DF1EAD521C97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,10 @@ Global
 		{668F62FA-C368-4AC3-805F-C3712D371A08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FB5FF34-22DE-4A0E-B0FA-F51DF6249E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19561F1B-D724-465B-B30B-DF1EAD521C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19561F1B-D724-465B-B30B-DF1EAD521C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19561F1B-D724-465B-B30B-DF1EAD521C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19561F1B-D724-465B-B30B-DF1EAD521C97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

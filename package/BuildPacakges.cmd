@@ -31,6 +31,8 @@ ECHO Rebuild modules
 ECHO -----------------------
 dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector\DotNetDetector.csproj
 IF ERRORLEVEL 1 GOTO ERROR
+dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector.DNF\DotNetDetector.DNF.csproj
+IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector.ConsoleApp\DotNetDetector.ConsoleApp.csproj
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector.ConsoleAppNetCore\DotNetDetector.ConsoleAppNetCore.csproj
@@ -46,6 +48,10 @@ mkdir "%UNSIGNED_FOLER%"
 
 REM  DotNetDetector modules
 XCOPY /D /E "DotNetDetector\bin\Release" "%UNSIGNED_FOLER%\DotNetDetector\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+REM  DotNetDetector.DNF modules
+XCOPY /D /E "DotNetDetector.DNF\bin\Release" "%UNSIGNED_FOLER%\DotNetDetector.DNF\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 
 REM  DotNetDetector.ConsoleApp modules
@@ -64,6 +70,8 @@ ECHO -----------------------
 SET SIGN_FILES=
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector\bin\Release\net40\DotNetDetector.dll"
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector\bin\Release\netcoreapp2\DotNetDetector.dll"
+SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.DNF\bin\Release\net40\DotNetDetector.DNF.dll"
+SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.DNF\bin\Release\netcoreapp2\DotNetDetector.DNF.dll"
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleApp\bin\Release\net40\DotNetDetector.ConsoleApp.exe"
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleApp\bin\Release\net45\DotNetDetector.ConsoleApp.exe"
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleApp\bin\Release\net451\DotNetDetector.ConsoleApp.exe"
@@ -116,6 +124,12 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "DotNetDetector\bin\Release\netcoreapp2\DotNetDetector.dll" "%SIGNED_FOLER%\netcoreapp2\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+REM  DotNetDetector.DNF modules
+COPY "DotNetDetector.DNF\bin\Release\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\net40\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "DotNetDetector.DNF\bin\Release\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\netcoreapp2\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
 REM  DotNetDetector.ConsoleApp modules
 COPY "DotNetDetector.ConsoleApp\bin\Release\net40\DotNetDetector.ConsoleApp.exe" "%SIGNED_FOLER%\net40\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
@@ -163,6 +177,8 @@ ECHO Packaging
 ECHO -----------------------
 
 dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" DotNetDetector\DotNetDetector.csproj
+IF ERRORLEVEL 1 GOTO ERROR
+dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" DotNetDetector.DNF\DotNetDetector.DNF.csproj
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" DotNetDetector.ConsoleApp\DotNetDetector.ConsoleApp.csproj
 IF ERRORLEVEL 1 GOTO ERROR
@@ -223,6 +239,7 @@ IF ERRORLEVEL 1 GOTO ERROR
 XCOPY /D /E /Y "%SIGNED_FOLER%\netcoreapp3.1" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3.1\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+REM  Copy DotNetDetector.dll
 COPY "%SIGNED_FOLER%\net40\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net45\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "%SIGNED_FOLER%\net40\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net451\" >nul
@@ -251,6 +268,37 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3.1\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+REM  Copy DotNetDetector.DNF.dll
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net45\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net451\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net452\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net46\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net461\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net462\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net47\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net471\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net472\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net48\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp2.1\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp2.2\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3.1\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
 REM  Sign packages

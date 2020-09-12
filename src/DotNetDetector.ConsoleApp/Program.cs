@@ -30,15 +30,21 @@ namespace NishySoftware.Utilities.DotNetDetector.ConsoleApp
             var targetVersion = DotNetDetector.DetectAppTargetNetVersion();
             Console.WriteLine("App target framework version: " + targetVersion?.ToString());
 
-            var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion();
-            Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString());
+            var runtimeVesion0 = DotNetDetector.DetectAppRuntimeNetVersion();
 
-            var installedDotNetFramework = DotNetDetector.DetectInstalledNetFrameworkVersion();
+            var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion(out var isPreview);
+            Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString() + (isPreview ? " Preview" : ""));
+
+            var installedDotNetFramework = DotNetDetectorDNF.DetectInstalledNetFrameworkVersion();
             Console.WriteLine("Installed .NET framework version: " + installedDotNetFramework?.ToString());
 
             // wait
             Console.WriteLine("\npress any key to exit the process...");
-            Console.ReadKey();
+            try
+            {
+                Console.ReadKey();
+            }
+            catch { }
         }
     }
 }
