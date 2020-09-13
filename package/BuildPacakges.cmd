@@ -37,7 +37,11 @@ dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector.Co
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector.ConsoleAppNetCore\DotNetDetector.ConsoleAppNetCore.csproj
 IF ERRORLEVEL 1 GOTO ERROR
-
+REM Change project folder to use glboal.json in project folder
+PUSHD DotNetDetector.ConsoleAppNet5\
+dotnet.exe build -c Release --no-incremental --no-dependencies DotNetDetector.ConsoleAppNet5.csproj
+IF ERRORLEVEL 1 GOTO ERROR
+POPD
 
 REM  Backup unsigned modules
 ECHO =======================
@@ -60,6 +64,10 @@ IF ERRORLEVEL 1 GOTO ERROR
 
 REM  DotNetDetector.ConsoleAppNetCore modules
 XCOPY /D /E "DotNetDetector.ConsoleAppNetCore\bin\Release" "%UNSIGNED_FOLER%\DotNetDetector.ConsoleAppNetCore\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+REM  DotNetDetector.ConsoleAppNet5 modules
+XCOPY /D /E "DotNetDetector.ConsoleAppNet5\bin\Release" "%UNSIGNED_FOLER%\DotNetDetector.ConsoleAppNet5\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 
 
@@ -90,6 +98,8 @@ SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleAppNetCore\bin\Release\netcor
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleAppNetCore\bin\Release\netcoreapp3\DotNetDetector.ConsoleAppNetCore.exe"
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleAppNetCore\bin\Release\netcoreapp3.1\DotNetDetector.ConsoleAppNetCore.dll"
 SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleAppNetCore\bin\Release\netcoreapp3.1\DotNetDetector.ConsoleAppNetCore.exe"
+SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleAppNet5\bin\Release\net5.0\DotNetDetector.ConsoleAppNet5.dll"
+SET SIGN_FILES=%SIGN_FILES% "DotNetDetector.ConsoleAppNet5\bin\Release\net5.0\DotNetDetector.ConsoleAppNet5.exe"
 
 SETLOCAL
 CALL "%SIGNTOOL%" %SIGN_FILES%
@@ -117,6 +127,7 @@ mkdir "%SIGNED_FOLER%\netcoreapp2.1"
 mkdir "%SIGNED_FOLER%\netcoreapp2.2"
 mkdir "%SIGNED_FOLER%\netcoreapp3"
 mkdir "%SIGNED_FOLER%\netcoreapp3.1"
+mkdir "%SIGNED_FOLER%\net5.0"
 
 REM  DotNetDetector modules
 COPY "DotNetDetector\bin\Release\net40\DotNetDetector.dll" "%SIGNED_FOLER%\net40\" >nul
@@ -170,6 +181,12 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "DotNetDetector.ConsoleAppNetCore\bin\Release\netcoreapp3.1\DotNetDetector.ConsoleAppNetCore.exe" "%SIGNED_FOLER%\netcoreapp3.1\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+REM  DotNetDetector.ConsoleAppNet5 modules
+COPY "DotNetDetector.ConsoleAppNet5\bin\Release\net5.0\DotNetDetector.ConsoleAppNet5.dll" "%SIGNED_FOLER%\net5.0\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "DotNetDetector.ConsoleAppNet5\bin\Release\net5.0\DotNetDetector.ConsoleAppNet5.exe" "%SIGNED_FOLER%\net5.0\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
 
 REM  Packaging
 ECHO =======================
@@ -184,7 +201,11 @@ dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" DotNetDetector.ConsoleA
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" DotNetDetector.ConsoleAppNetCore\DotNetDetector.ConsoleAppNetCore.csproj
 IF ERRORLEVEL 1 GOTO ERROR
-
+REM Change project folder to use glboal.json in project folder
+PUSHD DotNetDetector.ConsoleAppNet5\
+dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" DotNetDetector.ConsoleAppNet5.csproj
+IF ERRORLEVEL 1 GOTO ERROR
+POPD
 
 REM  Backup packages
 ECHO =======================
@@ -204,6 +225,8 @@ ECHO -----------------------
 XCOPY /D /E "%UNSIGNED_FOLER%\DotNetDetector.ConsoleApp" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 XCOPY /D /E "%UNSIGNED_FOLER%\DotNetDetector.ConsoleAppNetCore" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
+XCOPY /D /E "%UNSIGNED_FOLER%\DotNetDetector.ConsoleAppNet5" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 
 XCOPY /D /E /Y "%SIGNED_FOLER%\net40" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net40\" > nul
@@ -238,6 +261,8 @@ XCOPY /D /E /Y "%SIGNED_FOLER%\netcoreapp3" "%SIGNED_FOLER%\DotNetDetector.Conso
 IF ERRORLEVEL 1 GOTO ERROR
 XCOPY /D /E /Y "%SIGNED_FOLER%\netcoreapp3.1" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3.1\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
+XCOPY /D /E /Y "%SIGNED_FOLER%\net5.0" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net5.0\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
 
 REM  Copy DotNetDetector.dll
 COPY "%SIGNED_FOLER%\net40\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net45\" >nul
@@ -270,6 +295,9 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3.1\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net5.0\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
 REM  Copy DotNetDetector.DNF.dll
 COPY "%SIGNED_FOLER%\net40\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net45\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
@@ -299,6 +327,9 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\netcoreapp3.1\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+COPY "%SIGNED_FOLER%\netcoreapp2\DotNetDetector.DNF.dll" "%SIGNED_FOLER%\DotNetDetector.ConsoleApp\net5.0\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
 REM  Sign packages
