@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2;netcoreapp2.1;netcoreapp2.2;netcoreapp3;netcoreapp3.1</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <AssemblyVersion>1.0.0.9040</AssemblyVersion>
-    <FileVersion>1.0.0.9040</FileVersion>
+    <AssemblyVersion>1.0.0.9130</AssemblyVersion>
+    <FileVersion>1.0.0.9130</FileVersion>
     <RootNamespace>NishySoftware.Utilities</RootNamespace>
-    <Version>1.0.0-alpha00</Version>
+    <Version>1.0.0-alpha01</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>.NET Framework Version detection</PackageTags>
@@ -24,7 +24,8 @@
     </Description>
     <PackageReleaseNotes>
       Changes
-      - [alpha00]Support .NET Framework
+      - [alpha00]Add example for NishySoftware.DotNetDetector library
+      - [alpha01]Add example for NishySoftware.DotNetDetector.DNF library
     </PackageReleaseNotes>
   </PropertyGroup>
 

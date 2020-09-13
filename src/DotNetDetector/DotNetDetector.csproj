@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net40;netcoreapp2</TargetFrameworks>
 
-    <AssemblyVersion>1.0.0.9040</AssemblyVersion>
-    <FileVersion>1.0.0.9040</FileVersion>
+    <AssemblyVersion>1.0.0.9130</AssemblyVersion>
+    <FileVersion>1.0.0.9130</FileVersion>
     <RootNamespace>NishySoftware.Utilities</RootNamespace>
-    <Version>1.0.0-alpha00</Version>
+    <Version>1.0.0-alpha01</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>.NET Framework Core Version detection</PackageTags>
@@ -25,6 +25,7 @@
       Changes
       - [alpha00] Initial version
       - [alpha01] Divide DetectInstalledNetFrameworkVersion() method from  NishySoftware.DotNetDetector library to NishySoftware.DotNetDetector.DNF library
+      - [alpha01] Fix: can not detect the version of .NET 5 Preview
     </PackageReleaseNotes>
   </PropertyGroup>
 
