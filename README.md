@@ -23,38 +23,42 @@ NishySoftware.DotNetDetector provides the ability to detect various .NET Framewo
 
 # Installation
 
-**2020/09/01: In preparation. The module has not yet been uploaded to nuget.**
-
 Install NuGet package(s).
 
 ```powershell
 PM> Install-Package NishySoftware.DotNetDetector
+PM> Install-Package NishySoftware.DotNetDetector.DNF
 ```
 
 * [NishySoftware.DotNetDetector](https://www.nuget.org/packages/NishySoftware.DotNetDetector/) - DotNetDetector library.
 
+* [NishySoftware.DotNetDetector.DNF](https://www.nuget.org/packages/NishySoftware.DotNetDetector.DNF/) - DotNetDetector.DNF library.
+
+**2020/09/12: In preparation. The `DotNetDetector.DNF` module has not yet been uploaded to nuget.**
 
 # Features / How to use
 
+## NishySoftware.DotNetDetector
+This library provides static `DotNetDetector` class.
 All public methods are exported as static methods.
 
-## DetectAppTargetNetType()
+### DetectAppTargetNetType()
 ```csharp
 DotNetDetector.FrameworkTypes DetectAppTargetNetType()
 ```
 
 This method returns the framework type.
 ```csharp
-        public enum FrameworkTypes
-        {
-            Unknown = 0,
-            DotNetFramework = 1,
-            DotNet = 2,
-            DotNetCore = DotNet,
-        }
+    public enum FrameworkTypes
+    {
+        Unknown = 0,
+        DotNetFramework = 1,
+        DotNet = 2,
+        DotNetCore = DotNet,
+    }
 ```
 
-## DetectAppTargetNetVersion()
+### DetectAppTargetNetVersion()
 ```csharp
 Version DetectAppTargetNetVersion()
 ```
@@ -62,7 +66,7 @@ Version DetectAppTargetNetVersion()
 This method returns the version of the .NET Framework / .NET Core that was specified as the TargetFramwork at build time.
 If it cannot be determined, it returns null.
 
-## DetectAppRuntimeNetVersion()
+### DetectAppRuntimeNetVersion()
 ```csharp
 Version DetectAppRuntimeNetVersion()
 ```
@@ -70,12 +74,16 @@ Version DetectAppRuntimeNetVersion()
 This method returns the version of .NET Framework / .NET Core used by the running application.
 If it cannot be determined, null is returned.
 
-## Version DetectInstalledNetFrameworkVersion()
+## NishySoftware.DotNetDetector.DNF
+This library provides static `DotNetDetectorDNF` class.
+All public methods are exported as static methods.
+
+### Version DetectInstalledNetFrameworkVersion()
 ```csharp
 Version DetectInstalledNetFrameworkVersion()
 ```
 This method returns the maximum version of .NET Framework that installed on the system.
-If it cannot be determined, or if the calling application is not a .NET Framework application, null is returned.
+If it cannot be determined, null is returned.
 
 # Example
 
@@ -108,7 +116,7 @@ namespace NishySoftware.Utilities.DotNetDetector.ConsoleApp
             var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion();
             Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString());
 
-            var installedDotNetFramework = DotNetDetector.DetectInstalledNetFrameworkVersion();
+            var installedDotNetFramework = DotNetDetectorDNF.DetectInstalledNetFrameworkVersion();
             Console.WriteLine("Installed .NET framework version: " + installedDotNetFramework?.ToString());
         }
     }
@@ -134,7 +142,7 @@ Environment.Version: 4.0.30319.42000
 App target framework type: DotNet
 App target framework version: 2.2
 App runtime framework version: 2.2.8
-Installed .NET framework version:
+Installed .NET framework version: 4.8
 ```
 
 # License
