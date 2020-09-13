@@ -15,10 +15,10 @@
 [![Pull Requests](https://img.shields.io/github/issues-pr-closed/nishy2000/DotNetDetector.svg?style=flat-square)](https://github.com/nishy2000/DotNetDetector/pulls?q=is%3Apr+is%3Aclosed)
 
 # About
-NishySoftware.DotNetDetector provides the ability to detect various .NET Framework / .NET Core versions.
-- Target .NET Framework / .NET Core version when the application was built
-- .NET Framework / .NET Core version used by the running application.
-- .NET Framework version installed on the system
+NishySoftware.DotNetDetector / NishySoftware.DotNetDetector.DNF provide the ability to detect various .NET Framework / .NET Core versions.
+- Target .NET Framework / .NET Core version when the application was built (NishySoftware.DotNetDetector)
+- .NET Framework / .NET Core version used by the running application. (NishySoftware.DotNetDetector)
+- .NET Framework version installed on the system (NishySoftware.DotNetDetector.DNF)
 
 
 # Installation
@@ -34,7 +34,6 @@ PM> Install-Package NishySoftware.DotNetDetector.DNF
 
 * [NishySoftware.DotNetDetector.DNF](https://www.nuget.org/packages/NishySoftware.DotNetDetector.DNF/) - DotNetDetector.DNF library.
 
-**2020/09/12: In preparation. The `DotNetDetector.DNF` module has not yet been uploaded to nuget.**
 
 # Features / How to use
 
