@@ -249,12 +249,14 @@ namespace NishySoftware.Utilities
                                                 itemVersion = ver2;
                                             }
                                         }
-                                        // TODO: Preview判定
+
+                                        // to be not able to detect whether it is preview edition from the attribute information
                                     }
                                 }
                                 else
                                 {
                                     itemVersion = new Version(2, 0);
+                                    // to be not able to detect whether it is preview edition from the attribute information
                                 }
                                 if (itemVersion != null && !isSelfContained)
                                 {
