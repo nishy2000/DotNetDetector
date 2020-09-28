@@ -1,3 +1,5 @@
+[Click here](https://nishy-software.com/ja/dotnetdetector/) for Japanese page (日本語ページは[こちら](https://nishy-software.com/ja/dotnetdetector/))
+
 # NishySoftware.DotNetDetector
 ## Development status
 [![Build Status (develop)](https://nishy-software.visualstudio.com/DotNetDetector/_apis/build/status/nishy2000.DotNetDetector?branchName=develop&label=develop)](https://nishy-software.visualstudio.com/DotNetDetector/_build/latest?definitionId=6&branchName=develop)

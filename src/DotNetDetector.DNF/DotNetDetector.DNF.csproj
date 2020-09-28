@@ -21,7 +21,7 @@
     </Description>
     <PackageReleaseNotes>
       Changes
-      - [alpha00] Initial version
+      - [alpha00] Initial version (NishySoftware.DotNetDetector)
       - [alpha01] Divide DetectInstalledNetFrameworkVersion() method from  NishySoftware.DotNetDetector library to this NishySoftware.DotNetDetector.DNF library
     </PackageReleaseNotes>
   </PropertyGroup>
