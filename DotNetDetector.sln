@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetDetector", "src\DotNe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{2BBC60C7-6232-4EAD-8298-E1579996A961}"
 	ProjectSection(SolutionItems) = preProject
+		Build-samples.cmd = Build-samples.cmd
 		Exec-samples.cmd = Exec-samples.cmd
 	EndProjectSection
 EndProject
