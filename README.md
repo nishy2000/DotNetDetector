@@ -114,8 +114,10 @@ namespace NishySoftware.Utilities.DotNetDetector.ConsoleApp
             var targetVersion = DotNetDetector.DetectAppTargetNetVersion();
             Console.WriteLine("App target framework version: " + targetVersion?.ToString());
 
-            var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion();
-            Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString());
+            var runtimeVesion0 = DotNetDetector.DetectAppRuntimeNetVersion();
+
+            var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion(out var previewName);
+            Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString() + (string.IsNullOrEmpty(previewName) ? "" : " Preview (" + previewName + ")"));
 
             var installedDotNetFramework = DotNetDetectorDNF.DetectInstalledNetFrameworkVersion();
             Console.WriteLine("Installed .NET framework version: " + installedDotNetFramework?.ToString());
@@ -143,6 +145,17 @@ Environment.Version: 4.0.30319.42000
 App target framework type: DotNet
 App target framework version: 2.2
 App runtime framework version: 2.2.8
+Installed .NET framework version: 4.8
+```
+
+## Output by .NET Core 5.0 app (with .NET Core 5.0.0-rc1 runtime)
+```
+ImageRuntimeVersion: v4.0.30319
+RuntimeEnvironment: v4.0.30319
+Environment.Version: 5.0.0
+App target framework type: DotNet
+App target framework version: 5.0
+App runtime framework version: 5.0.0 Preview (rc.1.20451.14)
 Installed .NET framework version: 4.8
 ```
 

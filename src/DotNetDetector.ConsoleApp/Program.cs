@@ -32,8 +32,8 @@ namespace NishySoftware.Utilities.DotNetDetector.ConsoleApp
 
             var runtimeVesion0 = DotNetDetector.DetectAppRuntimeNetVersion();
 
-            var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion(out var isPreview);
-            Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString() + (isPreview ? " Preview" : ""));
+            var runtimeVesion = DotNetDetector.DetectAppRuntimeNetVersion(out var previewName);
+            Console.WriteLine("App runtime framework version: " + runtimeVesion?.ToString() + (string.IsNullOrEmpty(previewName) ? "" : " Preview (" + previewName + ")"));
 
             var installedDotNetFramework = DotNetDetectorDNF.DetectInstalledNetFrameworkVersion();
             Console.WriteLine("Installed .NET framework version: " + installedDotNetFramework?.ToString());

@@ -29,6 +29,10 @@
     </PackageReleaseNotes>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\DotNetDetector\DotNetDetector.csproj" />
     <ProjectReference Include="..\DotNetDetector.DNF\DotNetDetector.DNF.csproj" />

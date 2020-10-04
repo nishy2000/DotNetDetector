@@ -41,16 +41,16 @@ namespace NishySoftware.Utilities
         /// <returns>Detected version, null if version cannot be determined</returns>
         public static Version DetectAppRuntimeNetVersion()
         {
-            return DetectAppRuntimeNetVersion(out bool _);
+            return DetectAppRuntimeNetVersion(out string _);
         }
 
         /// <summary>
         /// Provides functionality to detect which version of the .NET Framework / .NET Core used by the running application.
         /// </summary>
         /// <returns>Detected version, null if version cannot be determined</returns>
-        public static Version DetectAppRuntimeNetVersion(out bool isPreview)
+        public static Version DetectAppRuntimeNetVersion(out string previewName)
         {
-            isPreview = false;
+            previewName = null;
             Version version = null;
 
             // Lets examine all assemblies loaded into the current application domain.
@@ -204,7 +204,7 @@ namespace NishySoftware.Utilities
                                         itemVersion = ver;
                                         if (infoVersions.Length == 2)
                                         {
-                                            isPreview = true;
+                                            previewName = infoVersions[1];
                                         }
                                     }
                                 }
@@ -271,7 +271,7 @@ namespace NishySoftware.Utilities
                                         var verNames = folderVerName.Split(new char[] { '-' }, 2);
                                         if (verNames.Length == 2)
                                         {
-                                            isPreview = true;
+                                            previewName = verNames[1];
                                         }
                                         if (Version.TryParse(verNames[0], out Version ver3))
                                         {
