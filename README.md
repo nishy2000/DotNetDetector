@@ -148,7 +148,7 @@ App runtime framework version: 2.2.8
 Installed .NET framework version: 4.8
 ```
 
-## Output by .NET Core 5.0 app (with .NET Core 5.0.0-rc1 runtime)
+## Output by .NET Core 5.0 app (with .NET 5.0.0-rc1 runtime)
 ```
 ImageRuntimeVersion: v4.0.30319
 RuntimeEnvironment: v4.0.30319
